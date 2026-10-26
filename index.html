@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор образовательных услуг</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="calc">
+  <h1>Выберите программу обучения</h1>
+
+  <!-- Количество -->
+  <div class="row">
+    <label for="qty">Количество мест</label>
+    <input id="qty" type="number" min="1" value="1">
+  </div>
+
+  <!-- Тип программы -->
+  <fieldset>
+    <legend>Тип программы</legend>
+    <label><input type="radio" name="service" value="basic" checked> Базовый курс</label>
+    <label><input type="radio" name="service" value="pro"> Профессиональный курс</label>
+    <label><input type="radio" name="service" value="premium"> Премиум-программа</label>
+  </fieldset>
+
+  <!-- Опция (только для "Профи") -->
+  <div class="row hidden" id="optionRow">
+    <label for="option">Формат обучения</label>
+    <select id="option">
+      <option value="none">Без дополнительного формата</option>
+      <option value="practice">Практикум с наставником (+2 000 Р)</option>
+      <option value="intensive">Интенсив с проектом (+3 500 Р)</option>
+    </select>
+  </div>
+
+  <!-- Свойство (только для "Премиум") -->
+  <div class="row hidden" id="propertyRow">
+    <label>
+      <input type="checkbox" id="property">
+      Индивидуальный куратор (+5 000 Р)
+    </label>
+  </div>
+
+  <!-- Итог -->
+  <div class="total">
+    <span>Итого:</span>
+    <span id="total">0 Р</span>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

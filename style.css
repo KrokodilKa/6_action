@@ -1,0 +1,230 @@
+/* ============================================================
+   Нежные йогуртовые тона
+   ============================================================ */
+
+:root {
+  /* Палитра */
+  --bg:            #fdf6f0;   /* сливочный фон страницы */
+  --surface:       #fffaf6;   /* карточка — тёплый белый */
+  --surface-soft:  #ffeef2;   /* йогуртово-розовый (акценты, итог) */
+  --surface-mint:  #eaf7f0;   /* мятный (чекбокс, подсветки) */
+
+  --text:          #4a3f3a;   /* тёплый тёмно-коричневый */
+  --text-muted:    #9a8b83;   /* приглушённый */
+  --border:        #f0e2d8;   /* тонкая граница */
+
+  --accent:        #f6a5b8;   /* йогуртовая роза */
+  --accent-strong: #ec8aa3;   /* роза потемнее (hover/focus) */
+  --accent-mint:   #9ad6b8;   /* мятный акцент */
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+
+  --shadow-soft: 0 10px 30px rgba(246, 165, 184, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #ffe3ea 0%, transparent 60%),
+    radial-gradient(900px 500px at 110% 110%, #e3f6ec 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 56px 20px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   Карточка
+   ============================================================ */
+
+.calc {
+  max-width: 460px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin: 0 0 32px;
+  color: var(--text);
+}
+
+/* ============================================================
+   Секции / отступы
+   ============================================================ */
+
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin: 0 0 24px;
+  padding: 20px 22px;
+  background: #fff;
+}
+
+legend {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 10px;
+}
+
+.row {
+  margin-bottom: 24px;
+}
+
+.row > label:first-child {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* ============================================================
+   Поля ввода и селект
+   ============================================================ */
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--text);
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  outline: none;
+}
+
+input[type="number"]:hover,
+select:hover {
+  border-color: var(--accent);
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 4px rgba(246, 165, 184, 0.25);
+  background: #fffdfc;
+}
+
+/* ============================================================
+   Радио и чекбокс — акцентная обводка
+   ============================================================ */
+
+input[type="radio"],
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 2px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+  display: inline-grid;
+  place-content: center;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="checkbox"] {
+  border-radius: 7px;
+}
+
+input[type="radio"]:hover,
+input[type="checkbox"]:hover {
+  border-color: var(--accent);
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+  border-color: var(--accent-strong);
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(246, 165, 184, 0.2);
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+label:has(input[type="checkbox"]:checked) {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+/* ============================================================
+   Итог
+   ============================================================ */
+
+.total {
+  margin-top: 32px;
+  padding: 22px 24px;
+  background: linear-gradient(135deg, var(--surface-soft), var(--surface-mint));
+  border-radius: var(--radius-md);
+  border: 2px solid var(--accent);
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text);
+}
+
+.total span:last-child {
+  color: var(--accent-strong);
+  font-size: 24px;
+}
+
+/* ============================================================
+   Служебное
+   ============================================================ */
+
+.hidden {
+  display: none;
+}
